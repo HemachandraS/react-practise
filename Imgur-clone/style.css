@@ -1,0 +1,111 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container-header {
+        background-image: url("https://s.imgur.com/desktop-assets/desktop-assets/homebg.e52b5cdf24f83bcd55f9f1318855f2ef.png");
+      }
+      #navbar {
+        width: 98%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .flex-items{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          column-gap: 8px;
+      }
+      .searchBar {
+        background-color: white;
+        padding: 0.5%;
+        width: 30vw;
+        background-color: #454469;
+    }
+    #inputbox {
+          background-color: #454469;
+        width: 90%;
+        height: 100%;
+      }
+      .addp {
+        display: flex;
+        column-gap: 2px;
+        padding: 2px;
+        border: none;
+        align-items: center;
+        background-color: #1bb76e;
+        color: white;
+         /* padding: 0.5%; */
+      }
+      .addFree{
+          border: none;
+          padding: 5px;
+          background-color: blue;
+          color: white;
+      }
+      .welcomeMessage {
+        width: max-content;
+        margin: 2% auto;
+        font-size: 1.5em;
+        color: #aed8e5;
+      }
+      .tag-box {
+        margin: auto 5%;
+      }
+      .tag-head {
+        display: flex;
+        color: #b7b6c5;
+        justify-content: space-between;
+      }
+      #tag-container {
+        display: flex;
+        justify-content: space-evenly;
+        /* border: 1px solid red; */
+        text-align: center;
+        color: white;
+      }
+      .tags {
+        /* border: 1px solid yellow; */
+        margin: 0.6%;
+        flex: 1;
+        /* width:8%; */
+    }
+    #tag-container :first-child {
+        flex-grow: 2;
+      }
+      .image-tag{
+          width:100%;
+        }
+        .image-tag img{
+          height: 15vh;
+          width:100%;
+      }
+
+      #body-container{
+        width:80%;
+        margin: auto;
+
+      }
+      .body-change{
+        margin: 2%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+    #posts{
+        /* display: flex; */
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 1%;
+        text-align: center;
+    }
+   /* .postBox{
+     display: flexbox;
+   } */
+.image{
+  width: 100%;
+}
