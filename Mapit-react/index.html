@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+    <link href="./index.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+    </div>
+    <script>
+      function initMap() {
+        let myOption = {
+          center: new google.maps.LatLng(12.963931306144104, 77.57604270212802),
+          zoom: 12,
+        };
+        let map = new google.maps.Map(document.getElementById("map"), myOption);
+
+        let myMarker1 = {
+          position: new google.maps.LatLng(
+            12.962911572759788,
+            77.57583255318588
+          ),
+        };
+        let marker1 = new google.maps.Marker(myMarker1);
+        let myMarker2 = {
+          position: new google.maps.LatLng(
+            12.96014437168296,
+            77.57632330740954
+          ),
+        };
+        let marker2 = new google.maps.Marker(myMarker2);
+        let myMarker3 = {
+          position: new google.maps.LatLng(
+            12.958744255472945,
+            77.5735462340529
+          ),
+        };
+        let marker3 = new google.maps.Marker(myMarker3);
+        let myMarker4 = {
+          position: new google.maps.LatLng(
+            12.979628322851719,
+            77.56427500718341
+          ),
+        };
+        let marker4 = new google.maps.Marker(myMarker4);
+        marker1.setMap(map);
+        marker2.setMap(map);
+        marker3.setMap(map);
+        marker4.setMap(map);
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA225wP8-zr6dCSri6c_GVUJH6SqbW5pPg&callback=initMap"></script>
+  </body>
+</html>
