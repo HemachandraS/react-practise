@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>throttler</title>
+    <style>
+      .searchBox {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #searchBar {
+        width: 30vw;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid gray;
+        margin: auto;
+      }
+      #searchScroll {
+        margin: auto;
+        text-align: left;
+        width: 30vw;
+        height: 20vh;
+        overflow-y: auto;
+        display: none;
+      }
+      .resultRow {
+        background-color: rgba(255, 245, 223, 0.377);
+        margin: 1px 0px;
+        padding: 5px 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="searchBox">
+      <input type="text" placeholder="Enter Movie Name" id="searchBar" />
+      <div id="searchScroll"></div>
+    </div>
+  </body>
+</html>
+<script>
+  let clear = true;
+  function debouncer() {
+    clearTimeout(clear);
+    if (clear) {
+      clear = false;
+      getData();
+      setTimeout(() => { clear = true}, 2000);
+    }
+  }
+  function getData() {
+    let searchBar = document.getElementById("searchBar").value;
+    fetch(`https://www.omdbapi.com/?apikey=f8147154&s=${searchBar}`)
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((res) => {
+        console.log(res);
+        display(res.Search);
+      });
+  }
+  function display(data) {
+    let searchScroll = document.getElementById("searchScroll");
+    searchScroll.innerHTML = "";
+    try {
+      data.map((e) => {
+        let div = document.createElement("div");
+        div.setAttribute("class", "resultRow");
+        div.innerHTML = e.Title;
+        searchScroll.append(div);
+      });
+    } catch (error) {
+      console.log(error);
+      searchScroll.append("Not Found Anything");
+    }
+    searchScroll.style.display = "block";
+  }
+  document.getElementById("searchBar").addEventListener("keypress", (e) => {
+    debouncer();
+  });
+</script>
